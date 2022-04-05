@@ -323,9 +323,9 @@ unclassified:
     useSsl: false
     useTls: false
   operationsCenterRootAction:
-    connectionDetails: "H4sIAAAAAAAAAA2NWw7CIBAA78K3CyyPUriGJ1hbVo2kGMT4Yby7O5+TSearroOOqYrCPficUwSL\r\
-      \nzBBoSUDsVgiMxMljXmJQJ3XfpbWw9WOO3lodFsW+RxN9m/NZjPFRO+t0Qu2wrIKR4lMv5749qqyY\r\
-      \n2qv+/tme6wB6AAAA\r\n"
+    connectionDetails: "H4sIAAAAAAAAAA2NWw7CIBAA78K3wLJtXeAanoAFfERSDMX4Yby7O5+TSearbiPtU0WVzpk9ZNLM
+ftMrhKIZmDRlIgrr4rEEdVKPIq3Tue9z9NbqABT7Hk30fc5XtHbZDAIacgZd9IKV4lP50vOzyuqa
+2lF/f7sahOh6AAAA"
   pollSCM:
     pollingThreadCount: 10
   usageStatisticsCloudBees:
