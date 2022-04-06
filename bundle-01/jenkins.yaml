@@ -16,6 +16,8 @@ jenkins:
   labelAtoms:
   - name: "agent01"
   - name: "built-in"
+  - name: "controller"
+  labelString: "controller"
   markupFormatter: "plainText"
   mode: NORMAL
   myViewsTabBar: "standard"
@@ -33,30 +35,17 @@ jenkins:
       name: "agent01"
       remoteFS: "/var/jenkins"
       retentionStrategy: "always"
-  numExecutors: 2
+  numExecutors: 0
   primaryView:
     all:
+      description: "Template Controller for CasC"
       name: "all"
   projectNamingStrategy: "standard"
   quietPeriod: 5
   remotingSecurity:
     enabled: true
   scmCheckoutRetryCount: 0
-  securityRealm:
-    local:
-      allowsSignup: false
-      enableCaptcha: false
-      users:
-      - id: "admin"
-        name: "Carey Benge"
-        properties:
-        - "myView"
-        - preferredProvider:
-            providerId: "default"
-        - "timezone"
-        - mailer:
-            emailAddress: "cbenge@cloudbees.com"
-        - "apiToken"
+  securityRealm: "operationsCenter"
   slaveAgentPort: 50000
   updateCenter:
     sites:
@@ -66,8 +55,25 @@ jenkins:
       url: "https://jenkins-updates.cloudbees.com/update-center/envelope-core-cm/update-center.json"
   views:
   - all:
+      description: "Template Controller for CasC"
       name: "all"
   viewsTabBar: "standard"
+advisor:
+  acceptToS: true
+  email: "cbenge@cloudbees.com"
+  excludedComponents:
+  - "AgentsSystemConfiguration"
+  - "AgentsJVMProcessSystemMetricsContents"
+  - "GCLogs"
+  - "AgentsConfigFile"
+  - "ConfigFileComponent"
+  - "RootCAs"
+  - "SlaveLogs"
+  - "OtherConfigFilesComponent"
+  - "HeapUsageHistogram"
+  - "OtherLogs"
+  - "SlaveLaunchLogs"
+  nagDisabled: true
 beekeeper:
   enabled: true
   securityWarnings:
@@ -284,9 +290,12 @@ unclassified:
       $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
 
       Check console output at $BUILD_URL to view the results.
+    defaultContentType: "text/plain"
     defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
     defaultTriggerIds:
     - "hudson.plugins.emailext.plugins.trigger.FailureTrigger"
+    mailAccount:
+      smtpHost: "smtp.sample.com"
     maxAttachmentSize: -1
     maxAttachmentSizeMb: -1
     precedenceBulk: false
@@ -299,7 +308,7 @@ unclassified:
   gitHubConfiguration:
     apiRateLimitChecker: ThrottleForNormalize
   gitHubPluginConfig:
-    hookUrl: "http://35.225.171.32:8080/github-webhook/"
+    hookUrl: "http://34.132.27.194:8080/github-webhook/"
   gitSCM:
     addGitTagAction: false
     allowSecondFetch: false
@@ -316,16 +325,18 @@ unclassified:
   junitTestResultStorage:
     storage: "file"
   location:
-    adminAddress: "address not configured yet <nobody@nowhere>"
-    url: "http://35.225.171.32:8080/"
+    adminAddress: "Carey Benge <cbenge@cloudbees.com>"
+    url: "http://34.132.27.194:8080/"
   mailer:
     charset: "UTF-8"
+    smtpHost: "smtp.sample.com"
     useSsl: false
     useTls: false
   operationsCenterRootAction:
-    connectionDetails: "H4sIAAAAAAAAAA2NWw7CIBAA78K3wLJtXeAanoAFfERSDMX4Yby7O5+TSearbiPtU0WVzpk9ZNLM
-ftMrhKIZmDRlIgrr4rEEdVKPIq3Tue9z9NbqABT7Hk30fc5XtHbZDAIacgZd9IKV4lP50vOzyuqa
-2lF/f7sahOh6AAAA"
+    connectionDetails: |-
+      H4sIAAAAAAAAAA2NWw7CIBAA78K3CyyPUriGJ1hbVo2kGMT4Yby7O5+TSearroOOqYrCPficUwSL
+      zBBoSUDsVgiMxMljXmJQJ3XfpbWw9WOO3lodFsW+RxN9m/NZjPFRO+t0Qu2wrIKR4lMv5749qqyY
+      2qv+/tme6wB6AAAA
   pollSCM:
     pollingThreadCount: 10
   usageStatisticsCloudBees:
