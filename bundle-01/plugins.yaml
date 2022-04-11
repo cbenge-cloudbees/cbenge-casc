@@ -27,5 +27,4 @@ plugins:
 - id: cloudbees-view-creation-filter
 - id: cloudbees-workflow-template
 - id: cloudbees-workflow-ui
-
 - id: configuration-as-code
