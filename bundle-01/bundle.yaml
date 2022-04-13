@@ -4,3 +4,5 @@ description: "CloudBees CasC v1.0"
 version: "1"
 jcasc:
   - "jenkins.yaml"
+plugins:
+  - "plugins.yaml"
